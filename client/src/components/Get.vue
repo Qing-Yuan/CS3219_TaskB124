@@ -6,49 +6,23 @@
             Retrieve
         </button>
         <br>
-        <table class="table" style="width:75%">
-            <col style="width:20%">
-            <col style="width:20%">
-            <col style="width:20%">
-            <col style="width:20%">
-            <col style="width:20%">
-            <thead>
-                <tr>
-                    <th class="text-left">
-                    Name
-                    </th>
-                    <th class="text-left">
-                    Email
-                    </th>
-                    <th class="text-left">
-                    Phone
-                    </th>
-                    <th class="text-left">
-                    Gender
-                    </th>
-                    <th class="text-left">
-                    Contact ID
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr
-                    v-for="item in getResponse"
-                    :key="item.name"
-                >
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.email }}</td>
-                    <td>{{ item.phone }}</td>
-                    <td>{{ item.gender }}</td>
-                    <td>{{ item._id }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <b-row align-h="center">
+            <contact-card v-for="contact in getResponse"
+                :key="contact._id" 
+                :name="contact.name"
+                :email="contact.email"
+                :phone="contact.phone"
+                :gender="contact.gender"
+                :contact_id="contact._id"
+            >
+            </contact-card>
+        </b-row>
     </div>
 </template>
 
 <script>
 import Get from '@/services/Get'
+import ContactCard from '@/components/ContactCard'
 export default {
     data () {
         return {
@@ -61,6 +35,9 @@ export default {
             console.log(response.data)
             this.getResponse = response.data.data
         }
+    },
+    components: {
+        'contact-card': ContactCard
     }
 }
 </script>
