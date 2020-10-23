@@ -13,9 +13,16 @@ let apiRoutes = require("./api-routes");
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use((req,res,next) => {
+    res.header({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
+    });
+    next();
+})
 app.use(bodyParser.json());
 // Connect to Mongoose and set connection variable
-mongoose.connect('mongodb://localhost/resthub', { useNewUrlParser: true});
+mongoose.connect("mongodb+srv://qingyuan:qingyuan2910@cluster0.3begd.mongodb.net/Postmann?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 
 // Added check for DB connection
@@ -29,10 +36,11 @@ var port = process.env.PORT || 8080;
 
 // Send message for default URL
 app.get('/', (req, res) => res.send('Hello World with Express and Nodemon'));
-
 // Use Api routes in the App
 app.use('/api', apiRoutes);
 // Launch app to listen to specified port
 app.listen(port, function () {
     console.log("Running RestHub on port " + port);
 });
+
+module.exports = app;
