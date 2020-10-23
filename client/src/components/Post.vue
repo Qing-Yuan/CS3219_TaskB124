@@ -5,30 +5,33 @@
             type="name"
             name="name"
             v-model="name"
-            placeholder="name" />
+            placeholder="name"
+            style="margin:5px" />
         <br>
         <input
             type="email"
             name="email"
             v-model="email"
-            placeholder="email" />
+            placeholder="email"
+            style="margin:5px" />
         <br>
         <input
             type="phone"
             name="phone"
             v-model="phone"
-            placeholder="phone" />
+            placeholder="phone"
+            style="margin:5px" />
         <br>
         <input
             type="gender"
             name="gender"
             v-model="gender"
-            placeholder="gender" />
+            placeholder="gender"
+            style="margin:5px" />
         <br>
-        <button
-            @click='create'>
+        <b-button @click='create' size="sm" class="my-2 my-sm-0" style="margin:5px" >
             Create
-        </button>
+        </b-button>
         <br>
         <div class="success" v-html="message" />
         <br>

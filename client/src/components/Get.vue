@@ -1,10 +1,10 @@
 <template>
     <div>
         <h1>Retrieve Contacts</h1>
-        <button
-            @click='get'>
+        <b-button @click='get' size="sm" class="my-2 my-sm-0" style="margin:5px" >
             Retrieve
-        </button>
+        </b-button>
+        <br>
         <br>
         <b-row align-h="center">
             <contact-card v-for="contact in getResponse"

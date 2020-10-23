@@ -3,13 +3,12 @@
         <b-col>
             <b-card
                 :title="name"
-                img-src="../assets/profile.svg"
-                img-alt="Contact-Info"
                 img-top
                 tag="contact"
                 style="min-width:20rem; max-width:50rem"
                 class="mb-2"
             >
+                <img class="profile" src="../assets/profile.svg">
                 <b-row>
                     <b-col>
                         <div align="left">Email: </div>
@@ -45,5 +44,8 @@ export default {
 </script>
 
 <style scoped>
-
+.profile {
+  width: 100px;
+  margin: 60px;
+}
 </style>
