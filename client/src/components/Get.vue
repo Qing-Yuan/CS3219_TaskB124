@@ -7,10 +7,11 @@
         </button>
         <br>
         <table class="table" style="width:75%">
-            <col style="width:25%">
-            <col style="width:25%">
-            <col style="width:25%">
-            <col style="width:25%">
+            <col style="width:20%">
+            <col style="width:20%">
+            <col style="width:20%">
+            <col style="width:20%">
+            <col style="width:20%">
             <thead>
                 <tr>
                     <th class="text-left">
@@ -25,6 +26,9 @@
                     <th class="text-left">
                     Gender
                     </th>
+                    <th class="text-left">
+                    Contact ID
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,6 +40,7 @@
                     <td>{{ item.email }}</td>
                     <td>{{ item.phone }}</td>
                     <td>{{ item.gender }}</td>
+                    <td>{{ item._id }}</td>
                 </tr>
             </tbody>
         </table>

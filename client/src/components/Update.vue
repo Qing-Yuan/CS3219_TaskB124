@@ -1,6 +1,12 @@
 <template>
     <div>
-        <h1>Add Contacts</h1>
+        <h1>Update Contacts</h1>
+        <input
+            type="contact_id"
+            name="contact_id"
+            v-model="contact_id"
+            placeholder="contact_id" />
+        <br>
         <input
             type="name"
             name="name"
@@ -26,8 +32,12 @@
             placeholder="gender" />
         <br>
         <button
-            @click='create'>
-            Create
+            @click='update'>
+            Update
+        </button>
+        <button
+            @click='remove'>
+            Delete
         </button>
         <br>
         <div class="success" v-html="message" />
@@ -43,7 +53,7 @@
 </template>
 
 <script>
-import Post from '@/services/Post'
+import Update from '@/services/Update'
 export default {
     data () {
         return {
@@ -52,6 +62,7 @@ export default {
             email: '',
             phone: '',
             gender: '',
+            contact_id: '',
             resName: '',
             resEmail: '',
             resPhone: '',
@@ -59,9 +70,10 @@ export default {
         }
     },
     methods: {
-        async create () {
+        async update () {
             console.log('some issue with posting')
-            const response = await Post.post({
+            const response = await Update.update({
+                contact_id: this.contact_id,
                 name: this.name,
                 email: this.email,
                 phone: this.phone,
@@ -73,6 +85,14 @@ export default {
             this.resEmail = "Email: " + response.data.data.email
             this.resPhone = "Phone: " + response.data.data.phone
             this.resGender = "Gender: " + response.data.data.gender
+        },
+        async remove () {
+            console.log('some issue with posting')
+            const response = await Update.delete({
+                contact_id: this.contact_id,
+            })
+            console.log(response.data)
+            this.message = response.data.message
         }
     }
 }

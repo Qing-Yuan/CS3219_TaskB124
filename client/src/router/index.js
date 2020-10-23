@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Get from '@/components/Get'
 import Post from '@/components/Post'
+import Update from '@/components/Update'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/post',
       name: 'post',
       component: Post
+    },
+    {
+      path: '/update',
+      name: 'update',
+      component: Update
     }
   ]
 })
